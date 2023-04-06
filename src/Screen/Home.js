@@ -3,7 +3,6 @@ import { View, Text, Button } from "react-native";
 export default function Home({ navigation }) {
   return (
     <View>
-      <Text>Home</Text>
       <Button
         title="Go to Task Screen"
         onPress={() => {
@@ -15,7 +14,7 @@ export default function Home({ navigation }) {
         title="Go to Chat Screen"
         onPress={() => {
           /* 1. Navigate to the Details route with params */
-          navigation.navigate("Task");
+          navigation.navigate("Chat");
         }}
       />
     </View>

@@ -4,8 +4,6 @@ import {
   Text,
   MD3LightTheme as DefaultTheme,
   Provider as PaperProvider,
-  IconButton,
-  Tooltip,
   Appbar,
   Avatar,
   List,
@@ -13,8 +11,6 @@ import {
   Card,
   Chip,
   ProgressBar,
-  Colors,
-  MD3Colors,
   Button,
 } from "react-native-paper";
 import {
@@ -24,9 +20,10 @@ import {
 import Pin from "react-native-vector-icons/AntDesign";
 import Bookmark from "react-native-vector-icons/Entypo";
 import AddTask from "react-native-vector-icons/MaterialIcons";
-import SegmentedControl from "./SegmentedControl.js";
+import SegmentedControl from "../../Components/SegmentedControl";
+import styles from "./styles";
 const MORE_ICON = Platform.OS === "ios" ? "dots-horizontal" : "dots-vertical";
-export default function TaskScreen() {
+export default function TaskScreen({ navigation }) {
   const _handleMore = () => console.log("Shown more");
   const bottomSheetModalRef = useRef(null);
 
@@ -38,7 +35,12 @@ export default function TaskScreen() {
   return (
     <View>
       <Appbar.Header style={{ backgroundColor: "#000" }}>
-        <Appbar.BackAction color="#fff" onPress={() => {}} />
+        <Appbar.BackAction
+          color="#fff"
+          onPress={() => {
+            navigation.navigate("Home");
+          }}
+        />
         <Appbar.Content title="Title" color="#fff" />
         <Appbar.Action icon="attachment" color="#fff" onPress={() => {}} />
         <Appbar.Action icon={MORE_ICON} color="#fff" onPress={_handleMore} />
@@ -57,17 +59,17 @@ export default function TaskScreen() {
           <View style={styles.avatarSection}>
             <Avatar.Image
               size={70}
-              source={require("../../assets/avatar.jpg")}
+              source={require("../../../assets/avatar.jpg")}
             />
             <Avatar.Image
               style={{ position: "absolute", left: 45 }}
               size={70}
-              source={require("../../assets/avatar2.jpg")}
+              source={require("../../../assets/avatar2.jpg")}
             />
             <Avatar.Image
               style={{ marginLeft: 20 }}
               size={70}
-              source={require("../../assets/avatar3.jpg")}
+              source={require("../../../assets/avatar3.jpg")}
             />
           </View>
         </View>
@@ -132,7 +134,7 @@ export default function TaskScreen() {
                 title="Linked Issues"
                 description="Relates to"
                 descriptionStyle={{ color: "#000" }}
-                titleStyle={{ color: "rgba(0,0,0,0.7)", fontSize: 20 }}
+                titleStyle={{ color: "#000", fontSize: 20 }}
               >
                 <Card style={styles.cardContainer}>
                   <List.Section style={{ marginLeft: -80, width: 380 }}>
@@ -408,44 +410,3 @@ export default function TaskScreen() {
     </View>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-  title: {
-    fontWeight: 800,
-    color: "#000",
-  },
-  avatarSection: {
-    marginTop: 10,
-    position: "relative",
-    justifyContent: "flex-start",
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  cardContainer: {
-    borderRadius: 10,
-  },
-  cardInnerSection: {
-    justifyContent: "flex-start",
-    flexDirection: "row",
-    padding: 20,
-  },
-  cardLabel: {
-    color: "#000",
-    paddingLeft: 20,
-  },
-  tabsContainerStyle: {
-    height: 40,
-    marginTop: 50,
-  },
-  tab: {
-    height: 500,
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
-  },
-});
