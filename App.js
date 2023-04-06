@@ -10,6 +10,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./src/Screen/Home";
 import Chat from "./src/Screen/ChatScreen/Chat";
+import UserChat from "./src/Screen/ChatScreen/UserChat";
 const MORE_ICON = Platform.OS === "ios" ? "dots-horizontal" : "dots-vertical";
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -33,6 +34,11 @@ export default function App() {
             name="Chat"
             options={{ title: "Chat" }}
             component={Chat}
+          />
+          <Stack.Screen
+            name="UserChat"
+            options={{ title: "UserChat" }}
+            component={UserChat}
           />
         </Stack.Navigator>
         {/* <TaskScreen /> */}

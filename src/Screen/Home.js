@@ -17,6 +17,13 @@ export default function Home({ navigation }) {
           navigation.navigate("Chat");
         }}
       />
+      <Button
+        title="Go to User Chat"
+        onPress={() => {
+          /* 1. Navigate to the Details route with params */
+          navigation.navigate("UserChat");
+        }}
+      />
     </View>
   );
 }
