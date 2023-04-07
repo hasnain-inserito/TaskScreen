@@ -23,4 +23,8 @@ export default styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
   },
+  keyboardView: {},
+  input: {
+    width: 400,
+  },
 });

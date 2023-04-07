@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   Keyboard,
 } from "react-native";
+import KeyboardStickyView from "rn-keyboard-sticky-view";
 import { TextInput, Avatar, Text, Card, Chip } from "react-native-paper";
 import styles from "./styles";
 const vericalData = [
@@ -127,6 +128,14 @@ export default function UserChat() {
           />
         </View>
       </View>
+      <KeyboardStickyView style={styles.keyboardView}>
+        <TextInput
+          label="Start typing ..."
+          secureTextEntry
+          style={styles.input}
+          right={<TextInput.Icon icon="send" />}
+        />
+      </KeyboardStickyView>
     </View>
   );
 }
